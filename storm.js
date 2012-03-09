@@ -14,7 +14,7 @@ Log = function(access_token, project_id) {
 
 function(err, response, data);
 */
-Log.prototype.send = function(eventtext, callback, sourcetype, host, source) {
+Log.prototype.send = function(eventtext, sourcetype, host, source, callback) {
     sourcetype = typeof sourcetype !== 'undefined' ? sourcetype : 'syslog';
     callback = typeof callback === 'function' ? callback : function () { };
 
