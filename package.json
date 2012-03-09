@@ -1,0 +1,25 @@
+{
+    "name" : "splunkstorm",
+    "version" : "0.1.0",
+    "description" : "A library for logging to Splunk Storm's REST API",
+    "homepage": "http://github.com/coccyx/splunkstorm",
+    "main" : "storm.js",
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/coccyx/splunkstorm.git"
+    },
+    "keywords" : [
+        "splunk",
+        "irc"
+    ],
+    "dependencies" : {
+        "request": "2.2.x"
+    },
+    "author" : {
+        "name" : "Clint Sharp",
+        "email" : "clint@typhoon.org",
+        "url" : "http://clintsharp.com/"
+    },
+    "license" : "Apache 2.0",
+    "engine" : { "node" : ">=0.4.9" }
+}
