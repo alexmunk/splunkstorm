@@ -34,6 +34,10 @@ Log.prototype.send = function(eventtext, sourcetype, host, source, callback) {
     }
     var url = this.url + '?' + urlarr.join('&');
     
+    if (typeof eventtext === 'object') {
+        eventtext = JSON.stringify(eventtext);
+    }
+    
     var options = {
         url: url,
         method: 'POST',
