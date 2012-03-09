@@ -12,7 +12,9 @@ Details can be found in the file LICENSE.
 ## Getting Started
 
 In oder for the examples to work, you'll need a Splunk Storm account.
-If you don't aready have one, you can get one from http://www.splunkstorm.com
+If you don't already have one, you can get one from http://www.splunkstorm.com
+
+Once you clone the repository, don't forget to do an npm install to install required modules!!
 
 ## Overview
 
