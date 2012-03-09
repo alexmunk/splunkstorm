@@ -11,8 +11,9 @@ Log = function(access_token, project_id) {
 
 /* 
 ** Send log data to Storm.  Calls a callback that looks like:
-
-function(err, response, data);
+**
+** function(err, response, data)
+**
 */
 Log.prototype.send = function(eventtext, sourcetype, host, source, callback) {
     sourcetype = typeof sourcetype !== 'undefined' ? sourcetype : 'syslog';
