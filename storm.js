@@ -10,10 +10,13 @@ Log = function(access_token, project_id) {
 }
 
 /* 
-** Send log data to Storm
+** Send log data to Storm.  Calls a callback that looks like:
+
+function(err, response, data);
 */
-Log.prototype.send = function(eventtext, sourcetype, host, source) {
+Log.prototype.send = function(eventtext, callback, sourcetype, host, source) {
     sourcetype = typeof sourcetype !== 'undefined' ? sourcetype : 'syslog';
+    callback = typeof callback === 'function' ? callback : function () { };
 
     params = { 'project' : this.project_id,
                 'sourcetype' : sourcetype };
@@ -39,18 +42,11 @@ Log.prototype.send = function(eventtext, sourcetype, host, source) {
         }
     };
     
-    console.log("options: ", options);
     try {
-        console.log("Making HTTP request");
-        request(options, function(err, response, data) {
-            var statusCode = (response ? response.statusCode : 500) || 500;
-            var headers = (response ? response.headers : {}) || {};
-            console.log("Request came back.  Statuscode: ", statusCode);
-            console.log("Proxy response: ", data || JSON.stringify(err));
-        });
+        request(options, callback);
     }
     catch (ex) {
-        console.log("Caught exception: ", ex)
+        callback(ex);
     }
 }
 
