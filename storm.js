@@ -39,6 +39,7 @@ Log.prototype.send = function(eventtext, sourcetype, host, source, callback) {
     }
     
     var options = {
+        maxSockets: 1,
         url: url,
         method: 'POST',
         body: eventtext,
